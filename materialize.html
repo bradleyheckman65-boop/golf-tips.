@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Golf Tips Hub</title>
+
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+  <!-- Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+  <style>
+    body { padding-bottom: 48px; }
+    header { margin-bottom: 24px; }
+    .demo-section { margin-top: 32px; }
+    .controls .btn { margin-right: 8px; margin-bottom: 8px; }
+    .carousel { margin-top: 12px; }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="green darken-2">
+      <div class="nav-wrapper container">
+        <a href="#!" class="brand-logo">Golf Tips Hub</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- RADIO SECTION -->
+  <div class="section container">
+    <h4>What part of your game needs work?</h4>
+    <form>
+      <p>
+        <label>
+          <input name="golf" type="radio" value="Driving" onclick="displayTip()"/>
+          <span>Driving</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input name="golf" type="radio" value="Iron Play" onclick="displayTip()"/>
+          <span>Iron Play</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input name="golf" type="radio" value="Putting" onclick="displayTip()"/>
+          <span>Putting</span>
+        </label>
+      </p>
+    </form>
+    <div id="golf-response"></div>
+  </div>
+
+  <!-- EMAIL SECTION -->
+  <div class="section container">
+    <h4>Subscribe for Golf Tips</h4>
+    <form onsubmit="submitEmail(event)">
+      <div class="input-field">
+        <input id="email" type="email" required>
+        <label for="email">Email</label>
+      </div>
+      <button type="submit" class="btn green">Subscribe</button>
+    </form>
+    <div id="email-response"></div>
+  </div>
+
+  <main class="container">
+    <h4>Improve Your Golf Game</h4>
+
+    <!-- CAROUSEL -->
+    <section class="demo-section">
+      <h5>Golf Tips Carousel</h5>
+
+      <div class="controls">
+        <button id="basicPrev" class="btn">Prev</button>
+        <button id="basicNext" class="btn">Next</button>
+      </div>
+
+      <div class="carousel" id="basicCarousel">
+        <a class="carousel-item"><img src="https://cdn.mos.cms.futurecdn.net/vUdTRd73jo2Ztr44fbzH3Y-1200-80.jpg"></a>
+        <a class="carousel-item"><img src="https://cdn.mos.cms.futurecdn.net/wQoiG36PJ6QtDzuDkEaN8P-1200-80.jpg"></a>
+        <a class="carousel-item"><img src="https://images.ctfassets.net/56u5qdsjym8c/7z5RuAWzX8yLMw7FyrDjcf/a73ccf1f51d12fce4241209d7fdf4fe3/Tiger_Announcement.png?fl=progressive&q=80"></a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- COLLAPSIBLE -->
+    <section class="demo-section">
+      <h5>Golf Tips</h5>
+
+      <ul class="collapsible" id="demoCollapsible">
+        <li class="active">
+          <div class="collapsible-header">
+            <i class="material-icons">sports_golf</i>
+            Driving Tips
+          </div>
+          <div class="collapsible-body">
+            <p>Keep your head down and maintain a smooth tempo for longer drives.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">flag</i>
+            Iron Play
+          </div>
+          <div class="collapsible-body">
+            <p>Focus on ball-first contact and proper alignment to improve accuracy.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">gps_fixed</i>
+            Putting
+          </div>
+          <div class="collapsible-body">
+            <p>Control speed and read the green carefully for better putting results.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FULL WIDTH CAROUSEL -->
+    <section class="demo-section">
+      <h5>Featured Golf Moments</h5>
+
+      <div class="controls">
+        <button id="fwPrev" class="btn">Prev</button>
+        <button id="fwNext" class="btn">Next</button>
+      </div>
+
+      <div class="carousel carousel-slider" id="fullWidthCarousel">
+        <a class="carousel-item"><img src="https://static.vecteezy.com/system/resources/previews/065/642/251/non_2x/scenic-golf-course-fairway-surrounded-by-lush-green-trees-and-clear-blue-sky-on-a-sunny-day-free-photo.jpg"></a>
+        <a class="carousel-item"><img src="https://cdn.pixabay.com/photo/2015/05/28/10/12/golf-787826_1280.jpg"></a>
+        <a class="carousel-item"><img src="https://wallpapercave.com/wp/znFwG6H.jpg"></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const basicInstance = M.Carousel.init(document.querySelector('#basicCarousel'));
+      document.querySelector('#basicPrev').onclick = () => basicInstance.prev();
+      document.querySelector('#basicNext').onclick = () => basicInstance.next();
+
+      const collInstance = M.Collapsible.init(document.querySelector('#demoCollapsible'), {
+        accordion: false
+      });
+
+      const fwInstance = M.Carousel.init(document.querySelector('#fullWidthCarousel'), {
+        fullWidth: true,
+        indicators: true
+      });
+
+      document.querySelector('#fwPrev').onclick = () => fwInstance.prev();
+      document.querySelector('#fwNext').onclick = () => fwInstance.next();
+    });
+
+    function displayTip() {
+      const selected = document.querySelector('input[name="golf"]:checked').value;
+      document.getElementById('golf-response').innerText = `Focus on improving your ${selected}!`;
+    }
+
+    function submitEmail(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      document.getElementById('email-response').innerText =
+        `You're subscribed! Golf tips will be sent to ${email}`;
+      document.getElementById('email').value = '';
+    }
+  </script>
+</body>
+</html>
+<nav class="green darken-2">
+  <div class="nav-wrapper container">
+    <a href="index.html" class="brand-logo">Golf Tips Hub</a>
+    <ul class="right">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="materialize.html">Materialize</a></li>
+      <li><a href="jquery.html">JQuery</a></li>
+    </ul>
+  </div>
+</nav>
