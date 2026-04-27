@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Golf Tips Hub | Bootstrap Page</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+.hero{
+background:url("https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero-overlay{
+background:rgba(0,0,0,.55);
+padding:50px;
+border-radius:20px;
+}
+
+.tip-card{
+transition:.3s;
+}
+
+.tip-card:hover{
+transform:scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<div class="container">
+<a class="navbar-brand fw-bold" href="index.html">
+🏌️ Golf Tips Hub
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="about.html">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="contact.html">Contact</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="bootstrap.html">
+Bootstrap
+</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-overlay">
+<h1 class="display-3 fw-bold">
+Improve Your Golf Game
+</h1>
+
+<p class="lead">
+Swing Tips • Short Game • Putting Advice
+</p>
+
+<button class="btn btn-warning btn-lg"
+data-bs-toggle="modal"
+data-bs-target="#tipModal">
+Get Today's Pro Tip
+</button>
+
+</div>
+</section>
+
+
+
+<!-- INTERACTION 1 CARDS -->
+<section class="container mt-5">
+<h2 class="text-center mb-4">
+Golf Fundamentals
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card tip-card shadow">
+<img src="https://via.placeholder.com/500x300?text=Driving"
+class="card-img-top">
+
+<div class="card-body text-center">
+<h4>Driving Tips</h4>
+<p>Gain more distance and hit fairways.</p>
+</div>
+
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card tip-card shadow">
+<img src="https://via.placeholder.com/500x300?text=Short+Game"
+class="card-img-top">
+
+<div class="card-body text-center">
+<h4>Short Game</h4>
+<p>Save strokes around the green.</p>
+</div>
+
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="card tip-card shadow">
+<img src="https://via.placeholder.com/500x300?text=Putting"
+class="card-img-top">
+
+<div class="card-body text-center">
+<h4>Putting</h4>
+<p>Improve speed control and accuracy.</p>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+
+<!-- INTERACTION 2 ACCORDION -->
+<section class="container mt-5">
+<h2 class="text-center mb-4">
+Golf Tips FAQ
+</h2>
+
+<div class="accordion" id="faq">
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button"
+data-bs-toggle="collapse"
+data-bs-target="#q1">
+How can I stop slicing?
+</button>
+</h2>
+
+<div id="q1" class="accordion-collapse collapse show">
+<div class="accordion-body">
+Check grip, club path, and face alignment.
+</div>
+</div>
+</div>
+
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed"
+data-bs-toggle="collapse"
+data-bs-target="#q2">
+How do I chip better?
+</button>
+</h2>
+
+<div id="q2" class="accordion-collapse collapse">
+<div class="accordion-body">
+Use a narrow stance and focus on clean contact.
+</div>
+</div>
+</div>
+
+
+<div class="accordion-item">
+<h2 class="accordion-header">
+<button class="accordion-button collapsed"
+data-bs-toggle="collapse"
+data-bs-target="#q3">
+How can I improve putting?
+</button>
+</h2>
+
+<div id="q3" class="accordion-collapse collapse">
+<div class="accordion-body">
+Practice distance control before working on line.
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+
+
+<!-- INTERACTION 3 CAROUSEL -->
+<section class="container mt-5">
+<h2 class="text-center mb-4">
+Featured Drills
+</h2>
+
+<div id="drillsCarousel"
+class="carousel slide"
+data-bs-ride="carousel">
+
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<img src="https://via.placeholder.com/1200x450?text=Tempo+Drill"
+class="d-block w-100">
+</div>
+
+<div class="carousel-item">
+<img src="https://via.placeholder.com/1200x450?text=Chipping+Drill"
+class="d-block w-100">
+</div>
+
+<div class="carousel-item">
+<img src="https://via.placeholder.com/1200x450?text=Putting+Drill"
+class="d-block w-100">
+</div>
+
+</div>
+
+<button class="carousel-control-prev"
+type="button"
+data-bs-target="#drillsCarousel"
+data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next"
+type="button"
+data-bs-target="#drillsCarousel"
+data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+
+</div>
+</section>
+
+
+
+<!-- REQUIRED FORM -->
+<section class="container mt-5 mb-5">
+<h2 class="text-center mb-4">
+Join Our Golf Newsletter
+</h2>
+
+<form class="shadow p-4 rounded bg-light">
+
+<div class="mb-3">
+<label class="form-label">
+Name
+</label>
+<input class="form-control" type="text">
+</div>
+
+<div class="mb-3">
+<label class="form-label">
+Email
+</label>
+<input class="form-control" type="email">
+</div>
+
+<div class="mb-3">
+<label class="form-label">
+Favorite Area to Improve
+</label>
+
+<select class="form-select">
+<option>Driving</option>
+<option>Iron Play</option>
+<option>Short Game</option>
+<option>Putting</option>
+</select>
+
+</div>
+
+<div class="mb-3">
+<label class="form-label">
+Questions for Our Coaches
+</label>
+<textarea class="form-control"></textarea>
+</div>
+
+<button class="btn btn-success">
+Submit
+</button>
+
+</form>
+</section>
+
+
+
+<!-- MODAL -->
+<div class="modal fade" id="tipModal">
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+<h4 class="modal-title">
+Today's Pro Tip
+</h4>
+
+<button class="btn-close"
+data-bs-dismiss="modal">
+</button>
+</div>
+
+<div class="modal-body">
+Keep your tempo smooth and balanced for more consistent ball striking.
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-secondary"
+data-bs-dismiss="modal">
+Close
+</button>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<footer class="bg-dark text-white text-center p-4">
+© 2026 Golf Tips Hub
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
